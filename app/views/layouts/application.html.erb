@@ -4,35 +4,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Videos: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'new' %>
-  <%= javascript_include_tag :defaults %>
+  <title>TubeMarks</title>
+  <%= stylesheet_link_tag 'purple' %>
+  <%= javascript_include_tag :defaults, 'jquery', 'corners' %>  
 </head>
+
 <body>
-<div id ="header">
-	<div class="box"><h1><%= link_to "Tubemarks", videos_path %></h1>
-		<p>YouTube Bookmarks</p>
+<div id="container">
+	
+<%= link_to image_tag ("/images/tubes2.png", :id => 'logo'), videos_path %>
 		<% if logged_in? %>
 				<%=link_to  current_user.login, user_videos_path(current_user) %> | <%= link_to 'youtube.com', 'http://www.youtube.com/' %> | <%= link_to 'Logout', logout_path %>
 			<% else %>
-			    <%= link_to 'Sign Up', signup_path %> | <%= link_to 'Login', login_path %>
+			    <%= link_to image_tag ('/images/signUP.png', :id => 'signUP'), signup_path %> 
+			    <%= link_to image_tag ('/images/signIN.png', :id => 'signIN'), login_path %>
 			<% end %>
-		</div>
- 	<div class="box">
-		<%= render :partial => 'marks/new_mark_form', :object => 'video' %>
-	</div>
-<div class="box">
-	<h2>Convenient Bookmarking</h2>
-  <p>Drag
-	<%= link_to (image_tag '/images/add_tubemark.png',  {:border => 0}), bookmarklet() %> to your toolbar for one click tubemarking.
-  </p>
-</div>
-</div>
+			
+
+
+<%= render :partial => 'marks/new_mark_form', :object => 'video' if logged_in? %>
 
 <div id = "flash_notice" onmousemove="new Effect.Fade(this, {duration: 2})" style="padding:.5em 0 0 5em;display: <%= flash[:notice] ? 'block' : 'none' %>">
 	  <%= flash[:notice] %>
 </div>
-<div id="container">
+
 
 	
 	<%= yield  %>
@@ -41,7 +36,16 @@
 	</div>
 	</div>
 	<div id="footer">
-		<p>Tubemarks is opensource. If you want to contribute it's hosted at GitHub.</p>
+		<div id="bugs">
+		<p><big>We all like surprises.</big></p><p>So we've hidden some of these little critters for you to find within this application.</p>
+		<p>We are for all creatures great and small and we don't believe in killing bugs we prefer just to move them to another branch. </p><p>So don't hit your screen just give a holler
+		to mail@brodaigh.com or if your not afraid of bugs go fork it at Github.	
+		
+		</p>
+		</div>
+			
+			<%= link_to (image_tag '/images/bookmarklet.png', {:border => 0, :alt => "tubemarks", :id => "bookmarklet" }), bookmarklet() %> 
+		
 	</div>
 </body>
 </html>

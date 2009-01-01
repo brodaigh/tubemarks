@@ -6,10 +6,13 @@ class User < ActiveRecord::Base
   has_many :marked_videos, :through => :marks, :source => :video
   has_many :views
   has_many :viewed_videos, :through => :views, :source => :video
-
-  validates_presence_of     :login, :email
-  validates_presence_of     :password,                   :if => :password_required?
-  validates_presence_of     :password_confirmation,      :if => :password_required?
+  
+  #redundant with length_of validation xB
+  #validates_presence_of     :login, :email
+  #validates_presence_of     :password,                   :if => :password_required?
+  
+  #agree with Amy Hoy -no password_field so no need to write it twice. xB
+  #validates_presence_of     :password_confirmation,      :if => :password_required?
   validates_length_of       :password, :within => 4..40, :if => :password_required?
   validates_confirmation_of :password,                   :if => :password_required?
   validates_length_of       :login,    :within => 3..40
@@ -19,7 +22,7 @@ class User < ActiveRecord::Base
 
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation
+  attr_accessible :login, :email, :password#, :password_confirmation
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
@@ -86,13 +89,13 @@ class User < ActiveRecord::Base
     return nil
   end
 
-  def self.reset_password_through_link(link, new_password, new_password_confirmation)
+  def self.reset_password_through_link(link, new_password)#, new_password_confirmation)
     users = User.find(:all, :conditions => ["forgotten_password_link = ?", link])
     raise "Whoa sailor, something's not right here" if users.size > 1
     if users.size > 0
       user = users.first
       user.password = new_password
-      user.password_confirmation = new_password_confirmation
+      #user.password_confirmation = new_password_confirmation
       user.save!
       user.forgotten_password_link = nil # we know its all OK so we stop the link being used again.
       user.save!

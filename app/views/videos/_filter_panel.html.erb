@@ -1,25 +1,44 @@
-<div id = "filter"><p>&nbsp;Watch:
-   <span class="filter"> 
+<div id = "filter"><p class="large">Watch Videos </p>
+   <ul>
+
+<% if session[:seen] == 'false'%>
+   <li class="disabled">
+<% else %>
+<li class="filter">
+<% end %> 
+
 		<%= link_to_unless(session[:seen] == 'false', 'unseen', params.merge({'seen' => 'false'})) %>
-   </span>
-   <span class="filter">
-		<%= link_to_unless(session[:seen] == 'true', 'seen', params.merge({'seen' => 'true'})) %> 
-   </span>
-   <span class="filter">
-		<%= link_to_unless(%w(seen unseen).include?(session[:seen]), 'all', params.merge({'seen' => 'all'})) %> 
-   </span>
-	<span class="space">and marked by: 
-	</span>
-	<span class="filter">
-		<%= link_to_unless(session[:marked_by] == 'all', 'everyone',  params.merge({'marked_by' => 'all'})) %> 
-	</span>
-<% if logged_in? %>
-	<span class="filter">
-		<%= link_to_unless(session[:marked_by] == current_user.login, 'you', params.merge({'marked_by' => current_user})) %> 
-	</span>
+   </li>
+<% if session[:seen] == 'true'%>
+   <li class="disabled">
+<% else %>
+<li class="filter">
 <% end %>
-</p>
+		<%= link_to_unless(session[:seen] == 'true', 'seen', params.merge({'seen' => 'true'})) %> 
+   </li>
+
+<% if session[:seen] == 'all'%>
+   <li class="disabled">
+<% else %>
+<li class="filter">
+<% end %>
+		<%= link_to_unless(%w(all).include?(session[:seen]), 'both', params.merge({'seen' => 'all'})) %> 
+   </li>
+<% if logged_in? %>
+	<li class="filter">
+		<%= link_to_unless(session[:marked_by] == 'all', 'everyones',  params.merge({'marked_by' => 'all'})) %> 
+	</li>
+
+	<li class="filter">
+		<%= link_to_unless(session[:marked_by] == current_user.login, 'you', params.merge({'marked_by' => current_user})) %> 
+	</li>
+
+
+	<li class="filter">
 <% if not %w(all you).include?(session[:marked_by])  %>
-     <%= display_name(session[:marked_by]).titleize.pluralize %> Tubemarks
+     <%= display_name(session[:marked_by]).pluralize %> 
+<% end %>
+   </li>
 <% end %>
 </div>
+<div class="clear"></div>

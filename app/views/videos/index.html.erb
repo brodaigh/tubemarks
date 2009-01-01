@@ -5,7 +5,7 @@
 	</div>
 	
 	<% if not @videos.blank? %>
-		<%= will_paginate @videos %>
+		<!--><%= will_paginate @videos %><!-->
 		<% @videos.each do |video| %>
 	<div class="units">
 		 <%= render :partial => 'video_summary', :locals => {:video => video} %>
@@ -18,6 +18,6 @@
 <% if @videos[0] %>
   <%= render :partial => 'video', :object => @videos[0] %>
 <% else %>
-There are no videos in that category.
+There are no videos in this category.
 <% end %>
 <% end %>

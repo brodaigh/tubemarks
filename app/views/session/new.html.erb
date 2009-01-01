@@ -1,9 +1,19 @@
 <!-- Hide the viewport in the main layout -->
-<script>$('viewport').style.display = 'none'</script>
+<script>
+jQuery.noConflict();
+
+jQuery(document).ready(function(){
+  jQuery("#viewport").css({display:'none'});
+});
+</script>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+
 <div id ="user">
-<h1>Login</h1>
-<p>Login to mark Videos.</p>
 <% form_tag session_path do -%>
+<h4>Login</h4>
+
 <p><label for="login">Login</label><br/>
 <%= text_field_tag 'login' %></p>
 
@@ -11,8 +21,8 @@
 <%= password_field_tag 'password' %></p>
 
 <p><%= submit_tag 'Log in' %></p>
+<p><%= link_to "I've forgotten my password", {:controller => "users", :action => 'email_reset_code'} -%></p>
+
 <% end -%>
 
-<p>Need an account? <%= link_to 'Sign Up', signup_path %></p>
-<p><%= link_to "I've forgotten my password", {:controller => "users", :action => 'email_reset_code'} -%></p>
 </div>
