@@ -25,5 +25,8 @@ jQuery(document).ready(function(){
 jQuery(document).ready(function(){
   jQuery("#user form").corner('round 17px');
 });
+jQuery(document).ready(function(){
+  jQuery("#comments").corner('round');
+});
 
 

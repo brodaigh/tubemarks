@@ -12,7 +12,10 @@ img#vidURL {position:relative;top:.5em;left:-.2em;height:20;width:190px;}
 img#dragThis {}
 img#toYour {position:relative;top:-1em;left:6em;}
 
-#bookmark {float:right;width:520px;padding:2em 0;}
+#comments{position:relative;top:4em;background:#C1CDCD;width:429px;padding:1em 1em 2em 1em;margin:0 0 4em 0;}
+#comments p{font-size:18px;}
+#bookmark {float:right;width:520px;padding:2em 0;
+}
 img#bookmarklet {
 	position:relative;
 	top:-1.7em;
@@ -102,4 +105,15 @@ div.pagination span.disabled {
 	
 	
 	span.filter  a{background:green;padding:.5em;}
-	#flash_notice {position:relative;top:-.2em;left:24em;}
+	#flash_notice {position:relative;top:-.2em;left:19em;}
+	#flash_error {color:#FF69B4;font-size:2em;margin:0;}
+	
+
+
+#errorExplanation ul li {
+	  width:200px;
+	  list-style: none;
+	  color:#fff;
+	  background:#D02090;
+	}
+

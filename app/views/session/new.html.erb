@@ -11,7 +11,10 @@ jQuery(document).ready(function(){
 <div class="clear">&nbsp;</div>
 
 <div id ="user">
+
 <% form_tag session_path do -%>
+<p id ="flash_error"><%= flash[:error] %></p>
+
 <h4>Login</h4>
 
 <p><label for="login">Login</label><br/>
@@ -21,6 +24,7 @@ jQuery(document).ready(function(){
 <%= password_field_tag 'password' %></p>
 
 <p><%= submit_tag 'Log in' %></p>
+
 <p><%= link_to "I've forgotten my password", {:controller => "users", :action => 'email_reset_code'} -%> <br/> <%= link_to "I don't have a password", {:controller => "users", :action => 'new'} -%></p>
 
 <% end -%>

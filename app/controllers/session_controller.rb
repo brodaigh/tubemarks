@@ -17,7 +17,7 @@ class SessionController < ApplicationController
       create_tubemark_in_waiting if session[:tubemark_in_waiting]
       redirect_back_or_default('/')
     else
-      flash.now[:notice] = 'login failed'
+      flash.now[:error] = 'Login failed.'
       render :action => 'new'
     end
   end
