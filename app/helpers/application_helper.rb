@@ -12,7 +12,7 @@ module ApplicationHelper
     if mark = video.marked_by?(current_user)
       link_to 'Remove mark!', mark, :confirm => 'Are you sure?', :method => :delete
     else
-      link_to 'Mark it!', video_marks_path(video), :method => :post
+      link_to 'TubeMark it!', video_marks_path(video), :method => :post
     end
   end
   

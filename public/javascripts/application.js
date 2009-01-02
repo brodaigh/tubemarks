@@ -23,6 +23,7 @@ jQuery(document).ready(function(){
   jQuery("h3").corner('round');
 });
 jQuery(document).ready(function(){
-  jQuery("form").corner('round 17px');
+  jQuery("#user form").corner('round 17px');
 });
+
 

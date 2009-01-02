@@ -21,7 +21,7 @@ jQuery(document).ready(function(){
 <%= password_field_tag 'password' %></p>
 
 <p><%= submit_tag 'Log in' %></p>
-<p><%= link_to "I've forgotten my password", {:controller => "users", :action => 'email_reset_code'} -%></p>
+<p><%= link_to "I've forgotten my password", {:controller => "users", :action => 'email_reset_code'} -%> <br/> <%= link_to "I don't have a password", {:controller => "users", :action => 'new'} -%></p>
 
 <% end -%>
 

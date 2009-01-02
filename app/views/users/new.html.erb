@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
 });
 </script>
 <div id="user">
-<h3>We're sorry for trying to kiss you this early on in the date, <br/>it's just that tubemarking needs a username.
+<h3><%= image_tag('/images/emark.png', :style => 'float:left;margin-top:-.58em') %>We're sorry for trying to kiss you this early on in the date, <br/>it's just that tubemarking needs a username.
 </h3>
 <%= error_messages_for :user %>
 <% form_for :user, :url => users_path do |f| -%>

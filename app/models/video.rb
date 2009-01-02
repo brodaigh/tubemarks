@@ -79,7 +79,7 @@ class Video < ActiveRecord::Base
   
   def validate 
     if title.blank?
-      errors.add_to_base("This does not appear to be a valid video") 
+      errors.add_to_base("(THIS DOES NOT APPEAR TO BE A VALID VIDEO.)") 
     end 
   end 
   
@@ -90,7 +90,7 @@ class Video < ActiveRecord::Base
       self.thumbnail_url = details.thumbnail_url
       self.length_seconds = details.length_seconds
     rescue
-      # could not retrieve details from youtube - perhaps invalid videoId?
+      # Could not retrieve details from youtube - perhaps invalid videoId?
     end
   end
   

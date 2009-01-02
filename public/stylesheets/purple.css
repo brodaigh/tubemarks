@@ -1,27 +1,35 @@
 body{background-image:url(/images/bg.png);margin:0;font-family:sans-serif,helvetica;background-color:#E6E6FA;}
 a img {border:none;}
 a{text-decoration:none;color:#fff;font-weight:bold;}
-
+title {font-weight:bold;}
+p#signUPtr{float:right;color:#333;}
+p#signUPtr a {color:#666;}
 img#logo {height:100;width:300px;}
-img#signIN {position:relative;top:-1.4em;left:-25.5em;height:20;width:52px;}
-img#signUP {position:relative;top:.7em;left:-11.5em;height:30;width:400px;}
+img#signIN {position:relative;top:-1.4em;left:-25.7em;height:20;width:52px;}
+img#signUP {position:relative;top:.7em;left:-11.5em;height:35;width:403px;}
+img#logOUT {position:relative;top:-2.4em;left:-.2em;height:20;width:60px;}
+img#vidURL {position:relative;top:.5em;left:-.2em;height:20;width:190px;}
+img#dragThis {}
+img#toYour {position:relative;top:-1em;left:6em;}
+
+#bookmark {float:right;width:520px;padding:2em 0;}
 img#bookmarklet {
 	position:relative;
-	top:-6em;
-	left:45em;
-	height:30;
-	width:170px;
+	top:-1.7em;
+	right:6em;
+	height:60;
+	width:220px;
 	vertical-align:middle;
 	cursor:move
 	}
 
-#container {margin:1em auto;width:1000px;overflow:hidden;}
+#container {margin:0em auto;width:1000px;overflow:hidden;}
 #viewport{
 	position:relative;
-	top:2em;
+	top:3em;
 	width:429px;
 	height:auto;
-	padding:1em;
+	padding:1em 1em 2em 1em;
 	background:#000;
 	color:#fff;	
 	}
@@ -29,7 +37,7 @@ img#bookmarklet {
 #video_list{
 	float:right;
 	position:relative;
-	top:2em;
+	top:3em;
 	width:429px;
 	background-color:#333;
 	margin:-2px 0;
@@ -43,29 +51,46 @@ p.video-title {margin:12px 0;font-weight:bold;font-size:20px;white-space:normal;
 p.video-added-by {font-size:1.1em;}
 p.video-added-by big a{color:#1E90FF;font-weight:bold;}
 p.large{font-size:2em;color:#fff;margin:.5em 0 0 -.3em;}
+.clear{clear:both;}
+#footer {position:relative;top:7px;margin:auto;width:1000px;background:#333;padding:0 0 2em 0;}
 
-#footer {position:relative;top:7px;margin:auto;width:1000px;background:#333;}
+ul{margin:1em 0 .5em -2em;width:400px;}
 li{list-style:none;display:inline;float:left;
 }
-ul{margin:1em 0 .5em -2em;width:400px;}
-li  {background:red;padding:.2em;width:100px;margin:.5em;text-align:center;font-size:20px;color:#333;font-weight:bold;}
-.clear{clear:both;}
-span.filter  a{background:green;padding:.5em;}
-.disabled {background:#FF6A6A;}
-#bugs {width:400px;padding:1em 2em 0 2em;color:#E6E6FA;text-align:justify;font-size:18px;line-height:24px;}
+li  {background:red;padding:.2em;width:105px;margin:.4em;text-align:center;font-size:20px;color:#333;font-weight:bold;}
+/*.disabled {background:#FF6A6A;}
+*/
+.disabled {background:#696969;}
+.disabled2 {background:#696969;}
+li.filter2  {background:#D02090;}
+#bugs {width:400px;padding:1em 2em 0 2em;}
 #footer big{font-size:30px;font-family:"Trebuchet MS";color:#AB82FF;}
-h3 {background:#1E90FF;padding:1em;color:#fff;font-weight:normal;font-size:20px;}
+#footer p{color:#E6E6FA;text-align:justify;font-size:18px;line-height:24px;}
+h3 {background:#1E90FF;padding:1em 1em 1em .3em;color:#fff;font-weight:normal;font-size:20px;}
 
-form {background:#333;padding:1em;width:500px;margin:auto;font-family:"Trebuchet MS";color:#fff;}
+#user form {background:#333;padding:1em;width:500px;margin:auto;font-family:"Trebuchet MS";color:#fff;}
 h4{color:#AB82FF;font-size:24px;margin:.2em 0;}
 input{padding:9px;font-size:18px;width:95%;border:none;font-weight:bold;
 	-moz-border-radius-bottomright:7px;
 	-moz-border-radius-topright:7px;
 	-moz-border-radius-bottomleft:7px;
 	-moz-border-radius-topleft:7px;}
-input[type="submit"]{background:#AB82FF;width:100px;}
+input[type="submit"]{background:#AB82FF;width:auto;}
+#new-mark form {position:relative;top:-3.7em;left:7.8em;height:10px;}
+#new-mark input {width:490px;background:#fff;border:3px solid #E6E6FA;vertical-align:bottom;}
+#new-mark input[type="submit"]{background:#1E90FF;width:auto;margin:0 0 0 1em;color:#fff;font-weight:bold;padding:8px;}
+#new-mark p{font-size:24px;}
 
 
+span.editing-links a{
+	background:#1E90FF;
+	color:#fff;
+	padding:6px 5px 2px 5px ;
+-moz-border-radius-bottomright:7px;
+-moz-border-radius-topright:7px;
+-moz-border-radius-bottomleft:7px;
+-moz-border-radius-topleft:7px;
+}
 div.pagination { padding:10px 0 3px 0;margin:3px 3px 3px 0; }
 span.current{color:#888;}
 div.pagination span.disabled {
@@ -74,3 +99,7 @@ div.pagination span.disabled {
 	color: #888;
 	background:none;
 	}
+	
+	
+	span.filter  a{background:green;padding:.5em;}
+	#flash_notice {position:relative;top:-.2em;left:24em;}

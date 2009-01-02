@@ -1,20 +1,16 @@
-<div id="form_at_video">
 <% if logged_in? %>
+<div id="new-mark">
+
   <% form_remote_tag(:url => marks_path, :method => :post) do %>
-  <h2>YouTube Video URL</h2>
-	<p>Copy the url of your fav Vids here.</p>
-	  <%= text_field_tag :url %><p><%= submit_tag "Mark & Share" %></p>
+  <p>	<%= image_tag ('/images/vidURL.png', :id => 'vidURL') %>
+
+	  <%= text_field_tag :url %><%= submit_tag "TubeMark it!" %></p>
 	<% end %>
-<% else %>
-  <% form_tag(:url => marks_path, :method => :post) do %>
-	  <h2>YouTube Video URL</h2>
-		<p>Copy the url of your fav Vids here.</p>
-	  <%= text_field_tag :url %><p><%= submit_tag "Mark & Share" %></p>
-	<% end %>
+</div>
 <% end %>
 
 
 <% if @errors %>
   <%= @errors.full_messages %>
+
 <% end %>
-</div>

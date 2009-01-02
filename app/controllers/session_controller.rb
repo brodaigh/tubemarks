@@ -13,7 +13,7 @@ class SessionController < ApplicationController
         current_user.remember_me unless current_user.remember_token?
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       # end
-      flash[:notice] = "Logged in successfully"
+      #flash[:notice] = "Logged in successfully"
       create_tubemark_in_waiting if session[:tubemark_in_waiting]
       redirect_back_or_default('/')
     else
@@ -26,7 +26,7 @@ class SessionController < ApplicationController
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token
     reset_session
-    flash[:notice] = "You have been logged out."
+    #flash[:notice] = "You have been logged out."
     redirect_back_or_default('/')
   end
   

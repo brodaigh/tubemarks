@@ -11,41 +11,45 @@
 
 <body>
 <div id="container">
-	
+	<p id ='signUPtr'><%= link_to 'Login', login_path unless logged_in? %> / <%= link_to 'Signup', signup_path unless logged_in? %></p>
+    
 <%= link_to image_tag ("/images/tubes2.png", :id => 'logo'), videos_path %>
-		<% if logged_in? %>
-				<%=link_to  current_user.login, user_videos_path(current_user) %> | <%= link_to 'youtube.com', 'http://www.youtube.com/' %> | <%= link_to 'Logout', logout_path %>
-			<% else %>
-			    <%= link_to image_tag ('/images/signUP.png', :id => 'signUP'), signup_path %> 
-			    <%= link_to image_tag ('/images/signIN.png', :id => 'signIN'), login_path %>
-			<% end %>
+	<% if logged_in? %>
+		<%= link_to image_tag ('/images/logOUT.png', :id => 'logOUT'), logout_path %>
+	    
+		<!-->
+		<%=link_to  current_user.login, user_videos_path(current_user) %> | 
+		<%= link_to 'youtube.com', 'http://www.youtube.com/' %> | <%= link_to 'Logout', logout_path %>
+		<!-->
 			
-
-
+	<% else %>
+		<%= link_to image_tag ('/images/signUP.png', :id => 'signUP'), signup_path %> 
+	    <%= link_to image_tag ('/images/signIN.png', :id => 'signIN'), login_path %>
+	<% end %>
+			
 <%= render :partial => 'marks/new_mark_form', :object => 'video' if logged_in? %>
 
-<div id = "flash_notice" onmousemove="new Effect.Fade(this, {duration: 2})" style="padding:.5em 0 0 5em;display: <%= flash[:notice] ? 'block' : 'none' %>">
+	<div id = "flash_notice" onmouseover="new Effect.Fade(this, {duration: 5})" style="padding:.5em 0 0 5em;display: <%= flash[:notice] ? 'block' : 'none' %>">
 	  <%= flash[:notice] %>
-</div>
-
-
-	
+	</div>
 	<%= yield  %>
 	<div id="viewport">
 		<%= yield :viewport %>
 	</div>
+</div>
+	
+<div id="footer">
+	<div id='bookmark'>
+	    <%= image_tag ('/images/dragThis.png', :id => 'dragThis') %> 
+		<%= link_to (image_tag '/images/bookmarklet2.png', {:border => 0, :alt => "tubemarks", :id => "bookmarklet" }), bookmarklet() %> 
+		<%= image_tag ('/images/toYour.png', :id => 'toYour') %> 
 	</div>
-	<div id="footer">
-		<div id="bugs">
-		<p><big>We all like surprises.</big></p><p>So we've hidden some of these little critters for you to find within this application.</p>
+	<div id="bugs">
+		<p><big>We all like surprises.</big></p><p><%= image_tag('/images/ladybug.png', :style => 'float:right;margin:-1.3em 1em 0') %>So we've hidden some of these  little critters for you to find within this application.</p>
 		<p>We are for all creatures great and small and we don't believe in killing bugs we prefer just to move them to another branch. </p><p>So don't hit your screen just give a holler
-		to mail@brodaigh.com or if your not afraid of bugs go fork it at Github.	
-		
+		to mail@brodaigh.com or if you're not afraid of bugs go fork it at Github.	
 		</p>
-		</div>
-			
-			<%= link_to (image_tag '/images/bookmarklet.png', {:border => 0, :alt => "tubemarks", :id => "bookmarklet" }), bookmarklet() %> 
-		
 	</div>
+</div>
 </body>
 </html>

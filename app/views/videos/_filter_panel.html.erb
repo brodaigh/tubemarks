@@ -25,20 +25,28 @@
 		<%= link_to_unless(%w(all).include?(session[:seen]), 'both', params.merge({'seen' => 'all'})) %> 
    </li>
 <% if logged_in? %>
-	<li class="filter">
+<% if session[:marked_by] == 'all'%>
+   <li class="disabled2">
+<% else %>
+<li class="filter2">
+<% end %>
 		<%= link_to_unless(session[:marked_by] == 'all', 'everyones',  params.merge({'marked_by' => 'all'})) %> 
 	</li>
 
-	<li class="filter">
-		<%= link_to_unless(session[:marked_by] == current_user.login, 'you', params.merge({'marked_by' => current_user})) %> 
+<% if session[:marked_by] == current_user.id.to_s %>
+   <li class="disabled2">
+<% else %>
+<li class="filter2">
+<% end %>
+		<%= link_to_unless(session[:marked_by] == current_user.id.to_s, 'yours', params.merge({'marked_by' => current_user})) %> 
 	</li>
 
 
-	<li class="filter">
+<!-->	<li class="filter">
 <% if not %w(all you).include?(session[:marked_by])  %>
      <%= display_name(session[:marked_by]).pluralize %> 
 <% end %>
-   </li>
+   </li><!-->
 <% end %>
 </div>
 <div class="clear"></div>
