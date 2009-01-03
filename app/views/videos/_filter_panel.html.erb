@@ -1,52 +1,53 @@
-<div id = "filter"><p class="large">Watch Videos </p>
-   <ul>
-
-<% if session[:seen] == 'false'%>
-   <li class="disabled">
-<% else %>
-<li class="filter">
-<% end %> 
-
+<p class="large">Watch Videos </p>
+<ul>
+		<% if session[:seen] == 'false'%>
+	<li class="disabled">
+		<% else %>
+	<li class="filter">
+		<% end %> 
 		<%= link_to_unless(session[:seen] == 'false', 'unseen', params.merge({'seen' => 'false'})) %>
-   </li>
-<% if session[:seen] == 'true'%>
-   <li class="disabled">
-<% else %>
-<li class="filter">
-<% end %>
-		<%= link_to_unless(session[:seen] == 'true', 'seen', params.merge({'seen' => 'true'})) %> 
-   </li>
+   	</li>
 
-<% if session[:seen] == 'all'%>
-   <li class="disabled">
-<% else %>
-<li class="filter">
-<% end %>
+		<% if session[:seen] == 'true'%>
+   	<li class="disabled">
+		<% else %>
+	<li class="filter">
+		<% end %>
+		<%= link_to_unless(session[:seen] == 'true', 'seen', params.merge({'seen' => 'true'})) %> 
+    </li>
+
+		<% if session[:seen] == 'all'%>
+    <li class="disabled">
+		<% else %>
+	<li class="filter">
+		<% end %>
 		<%= link_to_unless(%w(all).include?(session[:seen]), 'both', params.merge({'seen' => 'all'})) %> 
-   </li>
-<% if logged_in? %>
-<% if session[:marked_by] == 'all'%>
-   <li class="disabled2">
-<% else %>
-<li class="filter2">
-<% end %>
-		<%= link_to_unless(session[:marked_by] == 'all', 'everyones',  params.merge({'marked_by' => 'all'})) %> 
+ 	</li>
+
+		<% if logged_in? %>
+			<% if session[:marked_by] == 'all'%>
+   	<li class="disabled2">
+		<% else %>
+	<li class="filter2">
+		<% end %>
+	<%= link_to_unless(session[:marked_by] == 'all', 'everyones',  params.merge({'marked_by' => 'all'})) %> 
 	</li>
 
-<% if session[:marked_by] == current_user.id.to_s %>
-   <li class="disabled2">
-<% else %>
-<li class="filter2">
-<% end %>
+		<% if session[:marked_by] == current_user.id.to_s %>
+    <li class="disabled2">
+		<% else %>
+	<li class="filter2">
+		<% end %>
 		<%= link_to_unless(session[:marked_by] == current_user.id.to_s, 'yours', params.merge({'marked_by' => current_user})) %> 
 	</li>
+		<% end %>
 
+<!-->	
+	<li class="filter">
+		<% if not %w(all you).include?(session[:marked_by])  %>
+     		<%= display_name(session[:marked_by]).pluralize %> 
+		<% end %>
+   	</li>
+<!-->
 
-<!-->	<li class="filter">
-<% if not %w(all you).include?(session[:marked_by])  %>
-     <%= display_name(session[:marked_by]).pluralize %> 
-<% end %>
-   </li><!-->
-<% end %>
-</div>
-<div class="clear"></div>
+</ul>

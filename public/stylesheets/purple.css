@@ -11,7 +11,7 @@ img#logOUT {position:relative;top:-2.4em;left:-.2em;height:20;width:60px;}
 img#vidURL {position:relative;top:.5em;left:-.2em;height:20;width:190px;}
 img#dragThis {}
 img#toYour {position:relative;top:-1em;left:6em;}
-#comments{position:relative;top:4em;background:#C1CDCD;width:429px;padding:1em 1em 2em 1em;margin:0 0 4em 0;}
+#comments{position:relative;top:5em;background:#C1CDCD;width:429px;padding:1em 1em 2em 1em;margin:0 0 4em 0;}
 #comments p{font-size:18px;}
 #bookmark {float:right;width:520px;padding:2em 0;}
 
@@ -49,7 +49,7 @@ img#bookmarklet {
 	width:429px;
 	background-color:#333;
 	margin:-2px 0;
-	padding:0 2em 20em 2em;
+	padding:0 2em 10em 2em;
 	font-family:helvetica;
 	}
 	

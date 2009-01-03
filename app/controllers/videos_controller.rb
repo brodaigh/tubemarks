@@ -6,9 +6,9 @@ class VideosController < ApplicationController
   def index
     
     if logged_in?
-      @videos = Video.find_by_viewed_status(current_user, session[:seen]).marked_by(session[:marked_by].to_i).filter_private(params[:marked_by].to_i || current_user).paginate(:page => params[:page], :per_page => 5, :order => 'videos.created_at DESC')
+      @videos = Video.find_by_viewed_status(current_user, session[:seen]).marked_by(session[:marked_by].to_i).filter_private(params[:marked_by].to_i || current_user).paginate(:page => params[:page], :per_page => 7, :order => 'videos.created_at DESC')
     else
-      @videos = Video.find_by_viewed_status_no_login(session[:views], session[:seen]).marked_by(session[:marked_by].to_i).filter_private(session[:marked_by].to_i).paginate(:page => params[:page], :per_page => 5, :order => 'videos.created_at DESC')
+      @videos = Video.find_by_viewed_status_no_login(session[:views], session[:seen]).marked_by(session[:marked_by].to_i).filter_private(session[:marked_by].to_i).paginate(:page => params[:page], :per_page => 7, :order => 'videos.created_at DESC')
     end
     
     respond_to do |format|

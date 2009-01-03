@@ -60,7 +60,7 @@ class MarksController < ApplicationController
     
     respond_to do |format|
       unless @errors
-        flash[:notice] = 'Video was successfully marked.'
+        flash[:notice] = 'VIDEO TUBEMARKED SUCCESSFULLY!'
         format.js  { render :update do |page|
             page.replace_html 'flash_notice' , flash[:notice]
             page.replace_html 'viewport', :partial => '/videos/video'
