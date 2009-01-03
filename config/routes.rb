@@ -1,12 +1,16 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :users do |users|
     users.resources :videos
+    users.resources :comments
   end
   map.resources :videos do |videos|
     videos.resources :marks
+    videos.resources :comments
   end
   map.resources :views
   map.resources :marks
+  map.resources :comments 
+  
 
   map.resource :session, :controller => 'session'
   map.signup '/signup', :controller => 'users', :action => 'new'

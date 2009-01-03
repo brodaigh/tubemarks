@@ -11,33 +11,29 @@
 
 <body>
 <div id="container">
-	<p id ='signUPtr'><%= link_to 'Login', login_path unless logged_in? %> <%= link_to 'Logout', logout_path if logged_in? %> / <%= link_to 'Signup', signup_path unless logged_in? %></p>
+	<p id ='signUPtr'><%= link_to 'Login', login_path unless logged_in? %> <%= link_to 'Logout', logout_path if logged_in? %> / 	<%= link_to 'Signup', signup_path unless logged_in? %></p>
     
-<%= link_to image_tag ("/images/tubes2.png", :id => 'logo'), videos_path %>
+	<%= link_to image_tag ("/images/tubes2.png", :id => 'logo'), videos_path %>
+	
 	<% if logged_in? %>
 	    <!-->
 		<%= link_to image_tag ('/images/logOUT.png', :id => 'logOUT'), logout_path %>
-	    
-		
 		<%=link_to  current_user.login, user_videos_path(current_user) %> | 
 		<%= link_to 'youtube.com', 'http://www.youtube.com/' %> | <%= link_to 'Logout', logout_path %>
 		<!-->
-			
 	<% else %>
 		<%= link_to image_tag ('/images/signUP.png', :id => 'signUP'), signup_path %> 
 	    <%= link_to image_tag ('/images/signIN.png', :id => 'signIN'), login_path %>
 	<% end %>
 			
-<%= render :partial => 'marks/new_mark_form', :object => 'video' if logged_in? %>
+	<%= render :partial => 'marks/new_mark_form', :object => 'video' if logged_in? %>
 
 	<div id = "flash_notice"  style="padding:.5em 0 0 5em;display: <%= flash[:notice] ? 'block' : 'none' %>">
-	  <%= flash[:notice] %>
+	  	<%= flash[:notice] %>
 	</div>
 	
 	<%= yield  %>
-	
 		<%= yield :viewport %>
-	
 </div>
 	
 <div id="footer">

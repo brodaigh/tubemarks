@@ -9,7 +9,7 @@ jQuery(document).ready(function(){
 <div id="user">
 <h3><%= image_tag('/images/emark.png', :style => 'float:left;margin-top:-.58em') %>We're sorry for trying to kiss you this early on in the date, <br/>it's just that tubemarking needs a username.
 </h3>
-<%= error_messages_for :user, :header_message => "Please Try Again!", :message => "" %>
+<%= error_messages_for :user, :header_message => "Please Try Again.", :message => "" %>
 <% form_for :user, :url => users_path do |f| -%>
 
 <h4>Free SignUP ↑</h4>

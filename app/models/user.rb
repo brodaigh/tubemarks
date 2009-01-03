@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :marked_videos, :through => :marks, :source => :video
   has_many :views
   has_many :viewed_videos, :through => :views, :source => :video
-  
+  has_many :comments
   #redundant with length_of validation xB
   #validates_presence_of     :login, :email
   #validates_presence_of     :password,                   :if => :password_required?

@@ -4,6 +4,7 @@ class Video < ActiveRecord::Base
   has_many :views
   has_many :viewers, :through => :views, :source => :user
   has_many :markers, :through => :marks, :source => :user
+  has_many :comments
   belongs_to :adder, 
              :class_name => "User",
              :foreign_key => "adder"

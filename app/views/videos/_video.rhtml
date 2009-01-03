@@ -1,28 +1,26 @@
 <div id="viewport">
-<h2><%= video.title %></h2>
-	<%= embed(video.v) %>
-</div>
+	<div id="subviewport">
+  		<h2><%= video.title %></h2>
+		<%= embed(video.v) %>
+	</div>
 
 <div id="comments">
 	<p><big><b>Commentary.</b></big></p>
-	<input type= 'text' style="height:200px"></input>
-
-
-
-<p class="video-added-by"><big><%= link_to 'Madchen' %></big> </p> 
-<p>
-The cartoon beatnik who hounded her little brother Doug on Nickelodeon each week may have been annoying, but her clothes were to die for - giant sweater dresses, fuzzy berets, and a half-shaved head a la Alice Dellal.
-</p>
-<p class="video-added-by"><big><%= link_to 'Roscoe' %></big> </p> 
-<p>
-The cartoon beatnik who hounded her little brother Doug on Nickelodeon each week may have been annoying, but her clothes were to die for - giant sweater dresses, fuzzy berets, and a half-shaved head a la Alice Dellal.
-</p>
-<p class="video-added-by"><big><%= link_to 'Troy' %></big> </p> 
-<p>
-The cartoon beatnik who hounded her little brother Doug on Nickelodeon each week may have been annoying, but her clothes were to die for - giant sweater dresses, fuzzy berets, and a half-shaved head a la Alice Dellal.
-</p>
-<p class="video-added-by"><big><%= link_to 'Sacha' %></big> </p> 
-<p>
-The cartoon beatnik who hounded her little brother Doug on Nickelodeon each week may have been annoying, but her clothes were to die for - giant sweater dresses, fuzzy berets, and a half-shaved head a la Alice Dellal.
-</p>
+	<% if logged_in? %>
+		<% form_remote_for :comment, :url => comments_path, :update => "commentary",  :complete => visual_effect(:highlight, '#commentary') do |f| -%>
+			<p id="flash_error"><%= flash[:error] %></p>
+			<%= f.text_area 'comment' , :style => "height:200px"%>
+			<%= f.hidden_field('video_id', :value => video.id) %>
+			<%= f.hidden_field('user_id', :value => current_user.id) %>
+			<p><%= f.submit 'submit' %></p>
+		<% end -%>
+	<% else %>
+  		<p>(Login to comment.)</p>
+	<% end -%>
+	
+	<% @video = video %>
+		<div id= "commentary">
+			<%= render :partial => 'comments/comments' %>
+		</div>
+	</div>
 </div>

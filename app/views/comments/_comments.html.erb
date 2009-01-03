@@ -1,0 +1,5 @@
+<% @commentary = @video.comments.find(:all, :order => 'comments.created_at DESC') %>
+<% for comment in @commentary %>
+	<p class="video-added-by"><big>	<%= link_to comment.user.login  %></big> </p> 
+	<p>	<%=h comment.comment %></p>
+<% end %>

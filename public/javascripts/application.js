@@ -5,7 +5,7 @@ jQuery.noConflict();
   
 // Use jQuery via jQuery(...)
 jQuery(document).ready(function(){
-  jQuery("#viewport").corner('round');
+  jQuery("#subviewport").corner('round');
 });
 jQuery(document).ready(function(){
   jQuery(".units").corner('round');
