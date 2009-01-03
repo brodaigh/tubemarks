@@ -18,7 +18,7 @@ module ApplicationHelper
   
   def delete_link(video)
     if logged_in? && current_user.is_admin?
-      "#{link_to 'delete video', video, :confirm => 'Are you sure?', :method => :delete}"
+      "#{link_to 'Delete', video, :confirm => "Delete #{video.title} ?", :method => :delete}"
     end
   end
   
